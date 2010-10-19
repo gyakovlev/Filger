@@ -13,6 +13,7 @@ local f_s = Filger_Settings;
 
 local class = select(2, UnitClass("player"));
 local classcolor = RAID_CLASS_COLORS[class];
+local role="CASTER"
 local active, bars = {}, {};
 local MyUnits = {
     player = true,
@@ -58,11 +59,10 @@ function Update(self)
 		bar = bars[id][index];
 		if (not bar) then
 			bar = CreateFrame("Frame", "FilgerAnchor"..id.."Frame"..index, self);
-			bar:SetWidth(TukuiDB.Scale(value.data.size));
-			bar:SetHeight(TukuiDB.Scale(value.data.size));
+			bar:SetWidth(value.data.size);
+			bar:SetHeight(value.data.size);
 			bar:SetScale(1);
 			TukuiDB.SetTemplate(bar)
-			self.Interval=TukuiDB.Scale(self.Interval)
 			if (index == 1) then
 				bar:SetPoint(unpack(self.setPoint));
 			else
@@ -141,7 +141,7 @@ function Update(self)
 				else			
 					bar.time = bar.statusbar:CreateFontString("$parentTime", "ARTWORK");
 					bar.time:SetFont(TukuiCF["media"].uffont, font_size, "OUTLINE");
-					bar.time:SetPoint("RIGHT", bar.statusbar, TukuiDB.Scale(0), 0);
+					bar.time:SetPoint("RIGHT", bar.statusbar, 0, 0);
 				end
 				
 				if (bar.count) then
@@ -262,6 +262,18 @@ if (Filger_Spells and Filger_Spells["ALL"]) then
 	end
 end
 
+
+if (Filger_Spells and Filger_Spells[role]) then
+	if (not Filger_Spells[class]) then
+		Filger_Spells[class] = {}
+	end
+
+	for i = 1, #Filger_Spells[role], 1 do
+		table.insert(Filger_Spells[class], Filger_Spells[role][i])
+	end
+end
+
+
 if (Filger_Spells and Filger_Spells[class]) then
 	for index in pairs(Filger_Spells) do
 		if (index ~= class) then
@@ -280,8 +292,8 @@ if (Filger_Spells and Filger_Spells[class]) then
 		frame.Interval = data.Interval or 3;
 		frame.Mode = data.Mode or "ICON";
 		frame.setPoint = data.setPoint or "CENTER";
-		frame:SetWidth(Filger_Spells[class][i][1] and Filger_Spells[class][i][1].size or 100);
-		frame:SetHeight(Filger_Spells[class][i][1] and Filger_Spells[class][i][1].size or 20);
+		frame:SetWidth(Filger_Spells[class][i][1] and TukuiDB.Scale(Filger_Spells[class][i][1].size) or TukuiDB.Scale(100));
+		frame:SetHeight(Filger_Spells[class][i][1] and TukuiDB.Scale(Filger_Spells[class][i][1].size) or TukuiDB.Scale(20));
 		frame:SetPoint(unpack(data.setPoint));
 
 		if (f_s.configmode) then

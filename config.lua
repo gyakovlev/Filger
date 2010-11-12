@@ -615,6 +615,10 @@ Filger_Spells = {
 			{ spellID = 71521, size = 68, filter = "CD" },
 			-- Shadowflame
 			{ spellID = 47897, size = 68, filter = "CD" },
+			-- FelStorm
+			{ spellID = 89751, size = 68, filter = "CD" },
+			-- Immolation aura
+			{ spellID = 50589, size = 68, filter = "CD" },
 		},
 		{
 			Name = "P_LONG_CD_ICON",
@@ -622,10 +626,14 @@ Filger_Spells = {
 			Interval = 4,
 			Mode = "ICON",
 			setPoint = { "RIGHT", UIParent, "CENTER", -160, 28},
+			-- Demon Soul
+			{ spellID = 77801, size = 68, filter = "CD" },
 			-- Meta
 			{ spellID = 59672, size = 68, filter = "CD" },
 			-- Soulburn
 			{ spellID = 74434, size = 68, filter = "CD" },
+			-- Soulshatter
+			{ spellID = 29858, size = 68, filter = "CD" },
 			-- Shadowfury
 			{ spellID = 30283, size = 68, filter = "CD" },
 			-- Shadow ward
@@ -633,7 +641,11 @@ Filger_Spells = {
 			-- Death Coil
 			{ spellID = 6789, size = 68, filter = "CD" },
 			-- Howl of Terror
-			{ spellID = 5484, size = 32, filter = "CD" },
+			{ spellID = 5484, size = 68, filter = "CD" },
+			-- Demonic Circle: Teleport
+			{ spellID = 48020, size = 68, filter = "CD" },
+			-- Axe Toss (Felguard)
+			{ spellID = 89766, size = 68, filter = "CD" },
 		},
 
 		{
@@ -687,16 +699,18 @@ Filger_Spells = {
 		},
 		{
 			Name = "F/DEBUFF_BAR",
-			Direction = "UP",
+			Direction = "RIGHT",
 			IconSide = "LEFT",
 			Interval = 4,
 			Mode = "BAR",
-			setPoint = { "LEFT", UIParent, "CENTER", 160, 82 },
+			setPoint = { "LEFT", oUF_TukzDPS_focus, "RIGHT", TukuiDB.Scale(11), TukuiDB.Scale(-7)},
 
 			-- Fear
-			{ spellID = 5782, size = 32, barWidth = 175, unitId = "focus", caster = "all", filter = "DEBUFF" },
+			{ spellID = 5782, size = 23, barWidth = 175, unitId = "focus", caster = "all", filter = "DEBUFF" },
 			-- Banish
-			{ spellID = 710, size = 32, barWidth = 175, unitId = "focus", caster = "all", filter = "DEBUFF" },
+			{ spellID = 710, size = 23, barWidth = 175, unitId = "focus", caster = "all", filter = "DEBUFF" },
+			-- Seduction
+			{ spellID = 6358, size = 23, barWidth = 175, unitId = "focus", caster = "all", filter = "DEBUFF" },
 		},
 	},
 	["ROGUE"] = {
@@ -816,32 +830,41 @@ Filger_Spells = {
 	},
 	["CASTER"] = {
 		{
-			Name = "CASTER_T_BUFF_ICON",
+			Name = "CASTER_T_DEBUFF_ICON",
 			Direction = "RIGHT",
 			Interval = 4,
 			Mode = "ICON",
-			setPoint = { "LEFT", UIParent, "CENTER", 160, -62 },
+			setPoint = { "BOTTOMLEFT", oUF_TukzDPS_target, "BOTTOMRIGHT", TukuiDB.Scale(4), 0 },
 			-- Curse of the Elements
-			{ spellID = 1490, size = 32, unitId = "target", caster = "all", filter = "DEBUFF" },
+			{ spellID = 1490, size = 39, unitId = "target", caster = "all", filter = "DEBUFF" },
 			-- Ebon Plague
-			{ spellID = 65142, size = 32, unitId = "target", caster = "all", filter = "DEBUFF" },
+			{ spellID = 65142, size = 39, unitId = "target", caster = "all", filter = "DEBUFF" },
 			-- Earth and Moon
-			{ spellID = 60433, size = 32, unitId = "target", caster = "all", filter = "DEBUFF" },
+			{ spellID = 60433, size = 39, unitId = "target", caster = "all", filter = "DEBUFF" },
 			-- Shadow Mastery
-			{ spellID = 17800, size = 32, unitId = "target", caster = "all", filter = "DEBUFF" },
+			{ spellID = 17800, size = 39, unitId = "target", caster = "all", filter = "DEBUFF" },
 			-- Critical Mass
-			{ spellID = 22959, size = 32, unitId = "target", caster = "all", filter = "DEBUFF" },
-			-- Honor Among Thieves
-			{ spellID = 51701, size = 32, unitId = "player", caster = "all", filter = "BUFF" },
-			-- Curse of the Elements
-		--	{ spellID = 1490, size = 32, unitId = "target", caster = "all", filter = "DEBUFF" },
-			-- Curse of the Elements
-		--	{ spellID = 1490, size = 32, unitId = "target", caster = "all", filter = "DEBUFF" },
-			-- Curse of the Elements
-		--	{ spellID = 1490, size = 32, unitId = "target", caster = "all", filter = "DEBUFF" },
-			-- Curse of the Elements
-		--	{ spellID = 1490, size = 32, unitId = "target", caster = "all", filter = "DEBUFF" },
+			{ spellID = 22959, size = 39, unitId = "target", caster = "all", filter = "DEBUFF" },
 		},
+	--[[	{	
+			Name = "CASTER_BUFF_ICON",
+			Direction = "LEFT",
+			Interval = 4,
+			Mode = "ICON",
+			setPoint = { "BOTTOMRIGHT", oUF_TukzDPS_player, "TOPRIGHT", TukuiDB.Scale(0), TukuiDB.Scale(4) },
+			-- Honor Among Thieves
+		--	{ spellID = 51701, size = 39, unitId = "player", caster = "all", filter = "BUFF" },
+			-- Mind Quickening
+		--	{ spellID = 49868, size = 39, unitId = "player", caster = "all", filter = "BUFF" },
+			-- Moonkin Aura
+		--	{ spellID = 24907, size = 39, unitId = "player", caster = "all", filter = "BUFF" },
+			-- Wrath of Air Totem
+		--	{ spellID = 3738, size = 39, unitId = "player", caster = "all", filter = "BUFF" },
+			-- Demonic Pact
+		--	{ spellID = 47236, size = 39, unitId = "player", caster = "all", filter = "BUFF" },
+			-- Totemic Wrath
+		--	{ spellID = 77746, size = 39, unitId = "player", caster = "all", filter = "BUFF" },
+		},]]
 	},
 	["ALL"] = {
 		{
@@ -849,81 +872,81 @@ Filger_Spells = {
 			Direction = "LEFT",
 			Interval = 4,
 			Mode = "ICON",
-			setPoint = { "RIGHT", UIParent, "CENTER", -160, -62 },
+			setPoint = { "BOTTOMRIGHT", oUF_TukzDPS_player, "BOTTOMLEFT", -TukuiDB.Scale(4), 0 },
 
 			-- Eyes of Twilight/Augen des Zwielichts
-			{ spellID = 75495, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 75495, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Piercing Twilight/Durchbohrendes Zwielicht
-			{ spellID = 75456, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 75456, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Twilight Flames/Zwielichtflammen
-			{ spellID = 75473, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 75473, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Scaly Nimbleness/Schuppige Gewandtheit
-			{ spellID = 75480, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 75480, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Surge of Power/Kraftsog
-			{ spellID = 71644, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 71644, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Thick Skin/Dicke Haut
-			{ spellID = 71639, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 71639, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Siphoned Power/Entzogene Kraft
-			{ spellID = 71636, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 71636, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Aegis of Dalaran/Aegis von Dalaran
-			{ spellID = 71638, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 71638, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Speed of the Vrykul/Geschwindigkeit der Vrykul
-			{ spellID = 71560, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 71560, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Power of the Taunka/Macht der Taunka
-			{ spellID = 71558, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 71558, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Agility of the Vrykul/Beweglichkeit der Vrykul
-			{ spellID = 71556, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 71556, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Mote of Anger/Partikel des Zorns
-			{ spellID = 71432, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 71432, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Icy Rage/Eisige Wut
-			{ spellID = 71541, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 71541, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Cultivated Power/Kultivierte Macht
-			{ spellID = 71572, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 71572, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Invigorated/Gestärkt
-			{ spellID = 71577, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 71577, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Revitalized/Revitalisiert
-			{ spellID = 71584, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 71584, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Rage of the Fallen/Zorn der Gefallenen
-			{ spellID = 71396, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 71396, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Hardened Skin/Gehärtete Haut
-			{ spellID = 71586, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 71586, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Elusive Power/Flüchtige Macht
-			{ spellID = 71579, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 71579, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Shard of Flame/Flammensplitter
-			{ spellID = 67759, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 67759, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 
 			-- Frostforged Champion/Frostgeschmiedeter Champion
-			{ spellID = 72412, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 72412, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Chilling Knowledge/Kühlendes Wissen
-			{ spellID = 72418, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 72418, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Frostforged Sage/Frostgeschmiedeter Weiser
-			{ spellID = 72416, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 72416, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Frostforged Defender/Frostgeschmiedeter Verteidiger
-			{ spellID = 72414, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 72414, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 
 			-- Hyperspeed Accelerators/Hypergeschwindigkeitsbeschleuniger
-			{ spellID = 54999, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 54999, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 
 			-- Speed/Geschwindigkeit
-			{ spellID = 53908, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 53908, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Wild Magic/Wilde Magie
-			{ spellID = 53909, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			{ spellID = 53909, size = 39, unitId = "player", caster = "player", filter = "BUFF" },
 
 			--Tricks of the Trade/Schurkenhandel
-			{ spellID = 57934, size = 32, unitId = "player", caster = "all", filter = "BUFF" },
+			{ spellID = 57934, size = 39, unitId = "player", caster = "all", filter = "BUFF" },
 			--Power Infusion/Seele der Macht
-			{ spellID = 10060, size = 32, unitId = "player", caster = "all", filter = "BUFF" },
+			{ spellID = 10060, size = 39, unitId = "player", caster = "all", filter = "BUFF" },
 			-- Bloodlust/Kampfrausch
-			{ spellID = 2825, size = 32, unitId = "player", caster = "all", filter = "BUFF" },
+			{ spellID = 2825, size = 39, unitId = "player", caster = "all", filter = "BUFF" },
 			-- Heroism/Heldentum
-			{ spellID = 32182, size = 32, unitId = "player", caster = "all", filter = "BUFF" },
+			{ spellID = 32182, size = 39, unitId = "player", caster = "all", filter = "BUFF" },
 		},
 		{
 			Name = "PVE/PVP_P_DEBUFF_ICON",
-			Direction = "DOWN",
+			Direction = "LEFT",
 			Interval = 4,
 			Mode = "ICON",
-			setPoint = { "RIGHT", UIParent, "CENTER", -448, -80 },
+			setPoint = { "RIGHT", UIParent, "CENTER", -160, -80 },
 
 			-- Death Knight
 			-- Gnaw (Ghoul)
@@ -1185,10 +1208,10 @@ Filger_Spells = {
 		},
 		{
 			Name = "PVP_T_BUFF_ICON",
-			Direction = "DOWN",
+			Direction = "RIGHT",
 			Interval = 4,
 			Mode = "ICON",
-			setPoint = { "LEFT", UIParent, "CENTER", 448, -80 },
+			setPoint = { "LEFT", UIParent, "CENTER", 160, -80 },
 
 			-- Aspect of the Pack
 			{ spellID = 13159, size = 68, unitId = "player", caster = "player", filter = "BUFF" },

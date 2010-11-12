@@ -63,15 +63,16 @@ function Update(self)
 			bar:SetHeight(value.data.size);
 			bar:SetScale(1);
 			TukuiDB.SetTemplate(bar)
+			TukuiDB.CreateShadow(bar)
 			if (index == 1) then
 				bar:SetPoint(unpack(self.setPoint));
 			else
 				if (self.Direction == "UP") then
 					bar:SetPoint("BOTTOM", bars[id][index-1], "TOP", 0, self.Interval);
 				elseif (self.Direction == "RIGHT") then
-					bar:SetPoint("LEFT", bars[id][index-1], "RIGHT", self.Mode == "ICON" and self.Interval or value.data.barWidth+self.Interval, 0);
+					bar:SetPoint("LEFT", bars[id][index-1], "RIGHT", self.Mode == "ICON" and self.Interval or value.data.barWidth+self.Interval+7, 0);
 				elseif (self.Direction == "LEFT") then
-					bar:SetPoint("RIGHT", bars[id][index-1], "LEFT", self.Mode == "ICON" and -self.Interval or -(value.data.barWidth+self.Interval), 0);
+					bar:SetPoint("RIGHT", bars[id][index-1], "LEFT", self.Mode == "ICON" and -self.Interval or -(value.data.barWidth+self.Interval+7), 0);
 				else
 					bar:SetPoint("TOP", bars[id][index-1], "BOTTOM", 0, -self.Interval);
 				end

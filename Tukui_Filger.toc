@@ -2,10 +2,10 @@
 ## Title: Tukui Filger
 ## Notes: Minimal buff/debuff tracking
 ## Author: Nils Ruesch
-## Editor: FourOne
-## Credits: Nils Ruesch, Shestak, Affli, Garagar, hidekki
+## Editor: Affli
+## Credits: Nils Ruesch, Shestak, Affli, Garagar, hidekki, FourOne
 ## Version: 2.23
 ## RequiredDeps: Tukui
 
-Tukui_Filger_Settings.lua
-Tukui_Filger.lua
+config.lua
+Filger.lua

@@ -61,7 +61,7 @@ function Update(self)
 			bar = CreateFrame("Frame", "FilgerAnchor"..id.."Frame"..index, self);
 			bar:SetWidth(value.data.size);
 			bar:SetHeight(value.data.size);
-			bar:SetScale(1);
+		--	bar:SetScale(1);
 			TukuiDB.SetTemplate(bar)
 			TukuiDB.CreateShadow(bar)
 			if (index == 1) then
@@ -84,7 +84,7 @@ function Update(self)
 				bar.icon = bar:CreateTexture("$parentIcon", "ARTWORK");
 				bar.icon:SetPoint("TOPLEFT", TukuiDB.Scale(2), TukuiDB.Scale(-2))
 				bar.icon:SetPoint("BOTTOMRIGHT", TukuiDB.Scale(-2), TukuiDB.Scale(2))
-				bar.icon:SetTexCoord(0.1, 0.9, 0.1, 0.9);
+				bar.icon:SetTexCoord(0.08, 0.92, 0.08, 0.92);
 			end
 			
 			if (self.Mode == "ICON") then

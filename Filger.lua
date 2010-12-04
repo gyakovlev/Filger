@@ -264,13 +264,13 @@ if (Filger_Spells and Filger_Spells["ALL"]) then
 end
 
 
-if (Filger_Spells and Filger_Spells[role]) then
+if (Filger_Spells and Filger_Spells[TukuiDB.Role]) then
 	if (not Filger_Spells[class]) then
 		Filger_Spells[class] = {}
 	end
 
-	for i = 1, #Filger_Spells[role], 1 do
-		table.insert(Filger_Spells[class], Filger_Spells[role][i])
+	for i = 1, #Filger_Spells[TukuiDB.Role], 1 do
+		table.insert(Filger_Spells[class], Filger_Spells[TukuiDB.Role][i])
 	end
 end
 

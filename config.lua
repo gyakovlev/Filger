@@ -1,5 +1,5 @@
 Filger_Settings = {
-	configmode = false,
+	configmode = true,
 }
 
 --[[ CD-Example
@@ -828,7 +828,7 @@ Filger_Spells = {
 			{ spellID = 49206, size = 32, unitId = "target", caster = "player", filter = "DEBUFF" },
 		},
 	},
-	["CASTER"] = {
+	["Caster"] = {
 		{
 			Name = "CASTER_T_DEBUFF_ICON",
 			Direction = "RIGHT",
